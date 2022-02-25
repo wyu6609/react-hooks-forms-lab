@@ -6,13 +6,16 @@ import Item from "./Item";
 function ShoppingList({ items }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [nameTerm, setNameTerm] = useState("");
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
   }
 
   function handleSearch(event) {
     setSearchTerm(event.target.value);
+    console.log(event.target.value);
+  }
+  function handleNameChange(event) {
     console.log(event.target.value);
   }
 
@@ -32,7 +35,7 @@ function ShoppingList({ items }) {
 
   return (
     <div className="ShoppingList">
-      <ItemForm />
+      <ItemForm onNameChange={handleNameChange} />
       <Filter
         onCategoryChange={handleCategoryChange}
         onSearchChange={handleSearch}
